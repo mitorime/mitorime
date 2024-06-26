@@ -1,0 +1,161 @@
+* { margin: 0; }
+
+html {
+  background-color: $basic-light;
+  margin: 0;
+  padding: 0;
+  color: $basic-dark;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.invert {
+  background-color: $basic-dark;
+  width: fit-content;
+  color: $basic-light;
+  padding: 0 2px;
+}
+
+.text-light {
+  color: $basic-light;
+}
+.text-light-grey {
+  color: $mark-light;
+}
+.text-dark-grey {
+  color: $mark-dark;
+}
+.text-dark {
+  color: $basic-dark;
+}
+.text-nodec {
+  text-decoration: none;
+}
+
+.icon-text {
+  display: flex;
+  gap: 8px;
+}
+.ui-icon-large {
+  width: auto;
+  height: 32px;
+  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%) drop-shadow(0 0 4px $basic-light);
+}
+.ui-icon-medium {
+  width: auto;
+  height: 24px;
+  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%) drop-shadow(0 0 4px $basic-light);
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search-query {
+  height: 32px;
+  font-size: 20px;
+}
+
+.search-notfound {
+  background-color: $mark-light;
+  margin: 12px auto;
+  padding: 24px 48px;
+}
+
+.list button {
+  background-color: $basic-light;
+  padding: 0;
+  border: 0;
+}
+.list {
+  background-color: $basic-light;
+  max-width: 720px;
+  margin: 16px auto;
+  padding: 12px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.list a {
+  text-decoration: none;
+}
+
+.list-child {
+  background-color: $mark-light;
+  width: calc(100% - 24px);
+  height: auto;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.list-eyecatch {
+  width: 144px;
+  height: 81px;
+  object-fit: cover;
+}
+
+.list-detail {
+  display: flex;
+  flex-flow: column;
+}
+
+.list-title {
+  display: flex;
+  gap: 8px;
+}
+
+.list-descr {
+  font-size: 14px;
+}
+
+.edge {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  z-index: 10;
+}
+
+.mtrm-header {
+  height: 48px;
+  justify-content: space-between;
+  background-color: $basic_light;
+}
+
+.mtrm-header-logo {
+  object-fit: contain;
+  margin: 8px;
+  width: auto;
+  height: 100%;
+  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%);
+}
+
+.mtrm-footer {
+  height: 88px;
+  flex-flow: column;
+  background-color: $basic_dark;
+}
+
+.mtrm-footer-logo {
+  width: fit-content;
+  object-fit: contain;
+  margin: 8px;
+  width: 104px;
+  height: 34px;
+}
+
+.mtrm-footer-logo-img {
+  width: 104px;
+  height: 34px;
+  filter: invert(96%) sepia(10%) saturate(77%) hue-rotate(329deg) brightness(114%) contrast(84%);
+}
+
+.mtrm-footer-text {
+  margin: 0 8px 4px;
+}
+
+.blank {
+  height: 32px;
+}
