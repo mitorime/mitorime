@@ -21,7 +21,7 @@
     </ContentList>
     <ContentList v-slot="{ list }" :query="{ path: '/post', sort: orders[order % 4], where: { hidden: false } }">
       <div class="list">
-        <button @click="changeOrder"><img :src="`/_nuxt/assets/ui/sort-${order % 4}.svg`" class="ui-icon-large" alt="sort" /></button>
+        <button @click="changeOrder"><img :src="sortIcons[order % 4]" class="ui-icon-large" alt="sort" /></button>
         <nuxt-link :to="page._path" v-for="page in list" :key="page._path" class="list-child">
           <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
           <div class="list-detail">
@@ -46,13 +46,14 @@
 <script>
 export default {
   setup() {
+    const sortIcons = ref([new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ])
     const order = ref(0)
     const orders = [{date: -1}, {date: 1}, {title: 1}, {title: -1}]
     const changeOrder = () => {
       return order.value++
     }
     return {
-      order, orders, changeOrder
+      sortIcons, order, orders, changeOrder
     }
   }
 }

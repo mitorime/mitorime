@@ -9,7 +9,7 @@
     <ContentList :query="{ path: '/post', sort: orders[order % 4], where: searchTag }">
       <template #default="{ list }">
         <div class="list">
-          <button @click="changeOrder"><img :src="`/_nuxt/assets/ui/sort-${order % 4}.svg`" class="ui-icon-large" alt="sort" /></button>
+          <button @click="changeOrder"><img :src="sortIcons[order % 4]" class="ui-icon-large" alt="sort" /></button>
           <nuxt-link :to="page._path" v-for="page in list" :key="page._path" class="list-child">
             <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
             <div class="list-detail">
@@ -37,6 +37,7 @@ export default {
     const route = useRoute()
     const queryTag = route.query.q
     const searchTag = { tags: { $contains: queryTag || 'no tags' }, hidden: false }
+    const sortIcons = ref([new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ])
     const order = ref(0)
     const orders = ref([{date: -1}, {date: 1}, {title: 1}, {title: -1}])
     const changeOrder = () => {

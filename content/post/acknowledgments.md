@@ -2,7 +2,7 @@
 title: Acknowledgments and Legal Notices
 date: 2024.06.26
 updated: 2024.06.26
-eyecatch: https://lh3.googleusercontent.com/pw/AP1GczO3KZi7Fh8eSBa8RaHXea7xbzJ0-DzuZLZCZyaBiGHBGNUN-yJ2QehXE38gmVz-QuU0e-5IGKKArsaMUoM40U-AyFPbr8sMVUjgrulDQhygJ_90cyfFORgqMAgkG7we6YTOcqFgrbqLw1y2BZi6xFA=w1600-h900-s-no
+eyecatch: https://lh3.googleusercontent.com/pw/AP1GczMCQwRmKy3x3RBRQO5uSVf0a_zDvbYjgECO3qj4YhZZhX8iWEX6n5AmYeT0uR7x8Ktyyu3lEB_9dfH1aL2S4FtDAftWjG9h4RfqPGBzOF98VWSV64At-efk2VlCjBrHCSyp5Idrx34yT2QepVUrWZEu=w1600-h838-s-no
 categories: devlog
 tags: [License]
 pin: false

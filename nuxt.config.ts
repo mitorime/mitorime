@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         { hid: 'og:type', property: 'og:type', content: 'website' },
         { hid: 'og:site_name', property: 'og:site_name', content: 'ミトリメ' },
         { hid: 'og:url', property: 'og:url', content: 'https://mitori.me/' },
-        { hid: 'og:image', property: 'og:image', content: 'https://lh3.googleusercontent.com/pw/AP1GczO3KZi7Fh8eSBa8RaHXea7xbzJ0-DzuZLZCZyaBiGHBGNUN-yJ2QehXE38gmVz-QuU0e-5IGKKArsaMUoM40U-AyFPbr8sMVUjgrulDQhygJ_90cyfFORgqMAgkG7we6YTOcqFgrbqLw1y2BZi6xFA=w1600-h900-s-no', },
+        { hid: 'og:image', property: 'og:image', content: 'https://lh3.googleusercontent.com/pw/AP1GczMG0G3yfEw5Wbd31ku769zFBBoKRvKUsbM5w3mTdqEBEKMKaqDrrgCkg3CPjo8O6-QDTMSYrer6Mm7HuiZMeGabYvj4QoUjeD9HEnI1TJPD7nEXaz9nVHTfqzj9iE2kVa9BnKqJ2otulBtAnXvgNmFF=w1600-h838-s-no', },
         { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
         { hid: 'twitter:site', name: 'twitter:site', content: '@mitorime' }
       ],
@@ -26,6 +26,10 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap",
           crossorigin: ""
+        }, {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "@/public/apple-touch-icon.png"
         }]
     }
   },

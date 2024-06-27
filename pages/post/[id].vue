@@ -39,7 +39,8 @@ useHead({
     { hid: 'description', name: 'description', content: `${content.title}` },
     { hid: 'og:title', property: 'og:title', content: `${content.title}` + ' | ミトリメ' },
     { hid: 'og:description', name: 'og:description', content: `${content.title}` },
-    { hid: 'og:type', property: 'og:type', content: 'article' }
+    { hid: 'og:type', property: 'og:type', content: 'article' },
+    { hid: 'og:image', property: 'og:image', content: `${content.eyecatch}` }
   ]
 })
 </script>
