@@ -13,8 +13,14 @@
           <nuxt-link :to="page._path" v-for="page in list" :key="page._path" class="list-child">
             <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
             <div class="list-detail">
-              <strong class="invert">{{ page.title }}</strong>
-              <div> {{ page.date }} </div>
+              <div class="list-title">
+                <span><strong class="invert">{{ page.title }}</strong></span>
+                <span v-show="page.warning"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
+              </div>
+              <div>
+                <span class="list-descr"> {{ page.date }} </span>
+                <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
+              </div>
               <div class="list-descr"> {{ page.description }} </div>
             </div>
           </nuxt-link>
@@ -50,7 +56,7 @@ export default {
       ]
     })
     return {
-      queryCategory, searchCategory, order, orders, changeOrder
+      sortIcons, queryCategory, searchCategory, order, orders, changeOrder
     }
   }
 }

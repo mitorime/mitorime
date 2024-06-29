@@ -46,12 +46,15 @@
 <script>
 export default {
   setup() {
-    const sortIcons = ref([new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ])
+    const sortIcons = ref([])
     const order = ref(0)
     const orders = [{date: -1}, {date: 1}, {title: 1}, {title: -1}]
     const changeOrder = () => {
       return order.value++
     }
+    onMounted(() => {
+      sortIcons.value = [new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ]
+    })
     return {
       sortIcons, order, orders, changeOrder
     }
