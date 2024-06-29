@@ -7,9 +7,18 @@ html {
   color: $basic-dark;
   font-family: "Zen Kaku Gothic New", sans-serif;
 }
+a {
+  text-decoration: underline $mark-dark;
+}
 
 .invert {
   background-color: $basic-dark;
+  width: fit-content;
+  color: $basic-light;
+  padding: 0 2px;
+}
+.pale-invert {
+  background-color: $mark-dark;
   width: fit-content;
   color: $basic-light;
   padding: 0 2px;
@@ -91,8 +100,8 @@ html {
 }
 
 .list-eyecatch {
-  width: 144px;
-  height: auto;
+  width: $list-eyecatch-width;
+  height: calc($list-eyecatch-width * 0.52375); // 16:8.38 -> Twitter OGP
   object-fit: cover;
 }
 

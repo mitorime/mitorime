@@ -10,7 +10,7 @@
           <div class="post-tags">
             <span v-for="tag in page.tags" :key="tag">
               <NuxtLink :to="`/tag?q=${tag}`">
-                <div class="invert text-nodec">#{{ tag }}</div>
+                <div class="pale-invert text-nodec">#{{ tag }}</div>
               </NuxtLink>
             </span>
           </div>
