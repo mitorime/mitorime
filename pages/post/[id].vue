@@ -15,11 +15,11 @@
             </span>
           </div>
           <div class="icon-text" v-show="page.warning">
-            <span><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
+            <span class="icon-text"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
             <span class="text-grey">この記事は一部不快な表現を含みます。</span>
           </div>
           <div class="icon-text" v-show="page.hidden">
-            <span><img src="@/assets/ui/hidden.svg" class="ui-icon-medium" alt="this post will not be shown on the index." /></span>
+            <span class="icon-text"><img src="@/assets/ui/hidden.svg" class="ui-icon-medium" alt="this post will not be shown on the index." /></span>
             <span class="text-dark-grey">この記事は一覧には表示されません。</span>
           </div>
         </div>

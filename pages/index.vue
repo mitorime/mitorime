@@ -48,7 +48,7 @@ export default {
   setup() {
     const sortIcons = ref([])
     const order = ref(0)
-    const orders = [{date: -1}, {date: 1}, {title: 1}, {title: -1}]
+    const orders = [{updated: -1}, {updated: 1}, {title: 1}, {title: -1}]
     const changeOrder = () => {
       return order.value++
     }

@@ -45,7 +45,7 @@ export default {
     const searchTag = { tags: { $contains: queryTag || 'no tags' }, hidden: false }
     const sortIcons = ref([new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ])
     const order = ref(0)
-    const orders = ref([{date: -1}, {date: 1}, {title: 1}, {title: -1}])
+    const orders = ref([{updated: -1}, {updated: 1}, {title: 1}, {title: -1}])
     const changeOrder = () => {
       return order.value++
     }
