@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ContentList v-slot="{ list }" :query="{ path: '/post', sort: orders[order % 4], where: { pin: true } }">
+    <ContentList v-slot="{ list }" :query="{ path: '/post', sort: { updated: -1 }, where: { pin: true } }">
       <div class="list">
         <img src="@/assets/ui/pin.svg" class="ui-icon-large" alt="sort" />
         <NuxtLink :to="page._path" v-for="page in list" :key="page._path" class="list-child">
