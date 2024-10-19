@@ -1,6 +1,6 @@
 <template>
-  <button @click="scrollToTop" class="scroll-to-top">
-    <img src="@/assets/ui/arrow-up-thick.svg" class="ui-icon-large" alt="back to top" />
+  <button @click="scrollToTop" v-if="!isMobile" class="scroll-to-top">
+    <img src="@/assets/ui/arrow-up.svg" class="ui-icon-large" alt="back to top" />
   </button>
 </template>
 
@@ -11,7 +11,23 @@ const scrollToTop = () => {
     behavior: 'smooth'
   })
 }
+
+const isMobile = ref(false)
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+onMounted(() => {
+  handleResize()
+  window.addEventListener('resize', handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
 </script>
+
 
 <style scoped>
 .scroll-to-top {

@@ -10,7 +10,7 @@
           <div class="post-tags">
             <span v-for="tag in page.tags" :key="tag">
               <NuxtLink :to="`/tag?q=${tag}`">
-                <div class="pale-invert text-nodec">#{{ tag }}</div>
+                <div class="pale-invert">#{{ tag }}</div>
               </NuxtLink>
             </span>
           </div>
@@ -46,6 +46,7 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
+
 .post {
   background-color: $basic-light;
   max-width: 720px;
@@ -71,6 +72,9 @@ useHead({
   flex-wrap: wrap;
   gap: 6px;
   margin: 8px 0;
+}
+.post-tags a {
+  text-decoration: none;
 }
 .post-date {
   font-size: 20px;

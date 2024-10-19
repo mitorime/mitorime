@@ -14,8 +14,8 @@ const currentPath = computed(
 )
 
 useHead({
-  meta: [
-    { property: 'og:url', content: currentPath }
-  ],
+  meta: [{
+    property: 'og:url', content: currentPath
+  }]
 })
 </script>

@@ -1,4 +1,7 @@
-* { margin: 0; }
+* {
+  @import '@/styles/moon.scss';
+  margin: 0; 
+}
 
 html {
   background-color: $basic-light;
@@ -48,16 +51,17 @@ a {
 .ui-icon-large {
   width: auto;
   height: 32px;
-  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%) drop-shadow(0 0 4px $basic-light);
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con) drop-shadow(0 0 4px $basic-light);
 }
 .ui-icon-medium {
   width: auto;
   height: 24px;
-  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%) drop-shadow(0 0 4px $basic-light);
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con) drop-shadow(0 0 4px $basic-light);
 }
 
 .search {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -78,7 +82,6 @@ a {
   border: 0;
 }
 .list {
-  background-color: $basic-light;
   max-width: 720px;
   margin: 16px auto;
   padding: 12px;
@@ -113,6 +116,7 @@ a {
 
 .list-title {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -139,7 +143,7 @@ a {
   margin: 8px;
   width: auto;
   height: 100%;
-  filter: invert(62%) sepia(12%) saturate(327%) hue-rotate(191deg) brightness(88%) contrast(93%);
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
 }
 
 .mtrm-footer {
@@ -159,7 +163,7 @@ a {
 .mtrm-footer-logo-img {
   width: 104px;
   height: 34px;
-  filter: invert(96%) sepia(10%) saturate(77%) hue-rotate(329deg) brightness(114%) contrast(84%);
+  filter: invert($light-inv) sepia($light-sep) saturate($light-sat) hue-rotate($light-hue) brightness($light-bri) contrast($light-con);
 }
 
 .mtrm-footer-text {
