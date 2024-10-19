@@ -26,12 +26,30 @@
         <ContentRenderer :key="page._id" :value="page" class="post-text-wrap"></ContentRenderer>
       </div>
     </ContentDoc>
+    <button @click="shareContent" class="share">
+      <img src="@/assets/ui/share.svg" class="ui-icon-medium" alt="share" />
+    </button>
   </div>
 </template>
 
 <script setup>
 const route = useRoute()
 const content = await queryContent(route.fullPath).findOne()
+const shareData = {
+  title: `${content.title}`,
+  text: `${content.title}`,
+  url: route.fullPath
+}
+
+const shareContent = () => {
+  if (navigator.share) {
+    navigator.share(shareData)
+    .then(() => console.log('Successfully shared'))
+    .catch((error) => console.error('Error sharing', error))
+  } else {
+    alert('Web Share API is not supported in your browser.')
+  }
+}
 
 useHead({
   title: `${content.title}` + ' | ミトリメ',
@@ -50,7 +68,7 @@ useHead({
 .post {
   background-color: $basic-light;
   max-width: 720px;
-  margin: 0 auto 36px;
+  margin: 0 auto;
   padding: 12px;
 }
 .post-header {

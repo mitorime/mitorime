@@ -124,6 +124,13 @@ a {
   font-size: 14px;
 }
 
+.share {
+  display: flex;
+  margin: 0 auto 48px;
+  border: none;
+  background-color: $basic-light;
+}
+
 .edge {
   margin: 0;
   padding: 0;
