@@ -42,7 +42,7 @@ const route = useRoute()
 const content = await queryContent(route.fullPath).findOne()
 const shareData = {
   title: `${content.title}`,
-  text: `${content.title} ${route.fullPath} #ミトリメ`,
+  text: `${content.title} - ミトリメ`,
   url: route.fullPath
 }
 
