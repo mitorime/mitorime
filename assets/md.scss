@@ -229,11 +229,30 @@ table img {
   background-color: transparent;
 }
 
+rt{
+  transform: translateY(6px);
+}
+
+strong {
+  font-weight: 900;
+}
+
 iframe {
   margin: 16px auto 32px;
 }
 
+.left {
+  text-align: left;
+  line-height: 32px;
+  margin-bottom: 32px;
+}
 .center {
   text-align: center;
+  line-height: 32px;
+  margin-bottom: 32px;
+}
+.right {
+  text-align: right;
+  line-height: 32px;
   margin-bottom: 32px;
 }

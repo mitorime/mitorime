@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div ref="postbg" id="postbg"></div>
     <ContentDoc v-slot="{ doc: page }">
       <div class="post">
         <div class="post-header">
@@ -14,13 +15,17 @@
               </NuxtLink>
             </span>
           </div>
+          <div class="post-writer">
+            <img class="post-writer-icon" :src="page.writericon"/>
+            <div class="post-written-by invert">{{ page.writtenby }}</div>
+          </div>
           <div class="icon-text" v-show="page.warning">
             <span class="icon-text"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
             <span class="text-grey">この記事は一部不快な表現を含みます。</span>
           </div>
           <div class="icon-text" v-show="page.hidden">
             <span class="icon-text"><img src="@/assets/ui/hidden.svg" class="ui-icon-medium" alt="this post will not be shown on the index." /></span>
-            <span class="text-dark-grey">この記事は一覧には表示されません。</span>
+            <span class="text-dark-grey">この記事は非表示に設定されています。</span>
           </div>
         </div>
         <ContentRenderer :key="page._id" :value="page" class="post-text-wrap"></ContentRenderer>
@@ -37,9 +42,11 @@ const route = useRoute()
 const content = await queryContent(route.fullPath).findOne()
 const shareData = {
   title: `${content.title}`,
-  text: `${content.title}`,
+  text: `${content.title} ${route.fullPath} #ミトリメ`,
   url: route.fullPath
 }
+
+const postbg = ref(null)
 
 const shareContent = () => {
   if (navigator.share) {
@@ -61,12 +68,36 @@ useHead({
     { hid: 'og:image', property: 'og:image', content: `${content.eyecatch}` }
   ]
 })
+
+onMounted(() => {
+  if (content.backgroundColor != undefined) {
+    postbg.value.style.backgroundColor = content.backgroundColor
+  } else {
+    postbg.value.style.backgroundColor = "none"
+  }
+  if (content.backgroundImage != undefined) {
+    postbg.value.style.backgroundImage = `url(${content.backgroundImage})`
+  } else {
+    postbg.value.style.backgroundImage = "none"
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 
+#postbg {
+  z-index: -3;
+  position: fixed;
+  margin-top: -48px;
+  width: 100vw;
+  height: 100vh;
+  background-image: none;
+  background-color: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .post {
-  background-color: $basic-light;
   max-width: 720px;
   margin: 0 auto;
   padding: 12px;
@@ -87,7 +118,7 @@ useHead({
 .post-tags {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   gap: 6px;
   margin: 8px 0;
 }
@@ -100,5 +131,18 @@ useHead({
 }
 .post-text-wrap {
   margin: 32px auto;
+}
+.post-writer {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: nowrap;
+  align-items: center;
+}
+.post-writer-icon {
+  width: 24px;
+  height: auto;
+}
+.post-written-by {
+  margin-left: -2px;
 }
 </style>

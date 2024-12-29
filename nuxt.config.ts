@@ -24,7 +24,7 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com"
         }, {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap",
           crossorigin: ""
         }, {
           rel: "apple-touch-icon",

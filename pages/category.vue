@@ -14,7 +14,7 @@
             <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
             <div class="list-detail">
               <div class="list-title">
-                <span><strong class="invert">{{ page.title }}</strong></span>
+                <span><div class="list-title-cap invert">{{ page.title }}</div></span>
                 <span v-show="page.warning"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
               </div>
               <div>
@@ -37,27 +37,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const route = useRoute()
-    const queryCategory = route.query.q
-    const searchCategory = { categories: { $contains: queryCategory || 'no categories' }, hidden: false }
-    const sortIcons = ref([new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ])
-    const order = ref(0)
-    const orders = ref([{updated: -1}, {updated: 1}, {title: 1}, {title: -1}])
-    const changeOrder = () => {
-      return order.value++
-    }
-    useHead({
-      title: `${route.query.q}` + 'カテゴリ | ミトリメ',
-      meta: [
-        { hid: 'og:title', property: 'og:title', content: `${route.query.q}` + 'カテゴリ | ミトリメ' },
-      ]
-    })
-    return {
-      sortIcons, queryCategory, searchCategory, order, orders, changeOrder
-    }
-  }
+<script setup>
+const route = useRoute()
+const queryCategory = route.query.q
+const searchCategory = { categories: { $contains: queryCategory || 'no categories' }, hidden: false }
+const sortIcons = ref([])
+const order = ref(0)
+const orders = ref([{updated: -1}, {updated: 1}, {title: 1}, {title: -1}])
+
+const changeOrder = () => {
+  return order.value++
 }
+useHead({
+  title: `${route.query.q}` + 'カテゴリ | ミトリメ',
+  meta: [
+    { hid: 'og:title', property: 'og:title', content: `${route.query.q}` + 'カテゴリ | ミトリメ' },
+  ]
+})
+
+onMounted(() => {
+  sortIcons.value = [new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href]
+})
 </script>

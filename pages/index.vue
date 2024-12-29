@@ -7,7 +7,7 @@
           <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
           <div class="list-detail">
             <div class="list-title">
-              <span><strong class="invert">{{ page.title }}</strong></span>
+              <span><div class="list-title-cap invert">{{ page.title }}</div></span>
               <span v-show="page.warning"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
             </div>
             <div>
@@ -26,7 +26,7 @@
           <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
           <div class="list-detail">
             <div class="list-title">
-              <span><strong class="invert">{{ page.title }}</strong></span>
+              <span><div class="list-title-cap invert">{{ page.title }}</div></span>
               <span v-show="page.warning"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
             </div>
             <div>
@@ -43,21 +43,16 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const sortIcons = ref([])
-    const order = ref(0)
-    const orders = [{updated: -1}, {updated: 1}, {title: 1}, {title: -1}]
-    const changeOrder = () => {
-      return order.value++
-    }
-    onMounted(() => {
-      sortIcons.value = [new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href, ]
-    })
-    return {
-      sortIcons, order, orders, changeOrder
-    }
-  }
+<script setup>
+const sortIcons = ref([])
+const order = ref(0)
+const orders = [{updated: -1}, {updated: 1}, {title: 1}, {title: -1}]
+
+const changeOrder = () => {
+  return order.value++
 }
+onMounted(() => {
+  sortIcons.value = [new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href]
+})
+
 </script>

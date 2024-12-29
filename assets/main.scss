@@ -42,6 +42,9 @@ a {
 .text-nodec {
   text-decoration: none;
 }
+.bold {
+  font-weight: bold;
+}
 
 .icon-text {
   display: flex;
@@ -51,11 +54,14 @@ a {
 .ui-icon-large {
   width: auto;
   height: 32px;
-  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con) drop-shadow(0 0 4px $basic-light);
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
 }
 .ui-icon-medium {
   width: auto;
   height: 24px;
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
+}
+.ui-icon-shadow {
   filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con) drop-shadow(0 0 4px $basic-light);
 }
 
@@ -119,6 +125,9 @@ a {
   align-items: center;
   gap: 8px;
 }
+.list-title-cap {
+  font-weight: 700;
+}
 
 .list-descr {
   font-size: 14px;
@@ -128,7 +137,7 @@ a {
   display: flex;
   margin: 0 auto 48px;
   border: none;
-  background-color: $basic-light;
+  background-color: #00000000;
 }
 
 .edge {
@@ -142,7 +151,6 @@ a {
 .mtrm-header {
   height: 48px;
   justify-content: space-between;
-  background-color: $basic_light;
 }
 
 .mtrm-header-logo {

@@ -1,6 +1,6 @@
 <template>
   <button @click="scrollToTop" v-if="!isMobile" class="scroll-to-top">
-    <img src="@/assets/ui/arrow-up.svg" class="ui-icon-large" alt="back to top" />
+    <img src="@/assets/ui/arrow-up.svg" class="ui-icon-large ui-icon-shadow" alt="back to top" />
   </button>
 </template>
 
