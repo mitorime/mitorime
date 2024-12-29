@@ -90,7 +90,7 @@ onMounted(() => {
   position: fixed;
   margin-top: -48px;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-image: none;
   background-color: none;
   background-size: cover;
