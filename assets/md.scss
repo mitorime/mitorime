@@ -28,9 +28,15 @@ mark {
 }
 
 img {
+  display: flex;
+  justify-content: center;
   max-width: 100%;
   height: auto;
   margin: 8px 2px;
+}
+img.center {
+  display: block;
+  margin: 0 auto;
 }
 
 sub, sup {

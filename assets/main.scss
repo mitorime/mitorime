@@ -1,5 +1,4 @@
 * {
-  @import '@/styles/moon.scss';
   margin: 0; 
 }
 
@@ -12,6 +11,10 @@ html {
 }
 a {
   text-decoration: underline $mark-dark;
+}
+button {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+
 }
 
 .invert {

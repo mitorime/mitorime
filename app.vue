@@ -1,9 +1,6 @@
 <template>
   <div>
-    <MtrmHeader />
     <NuxtPage />
-    <ScrollTop />
-    <MtrmFooter />  
   </div>
 </template>
 

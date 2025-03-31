@@ -1,8 +1,9 @@
 <template>
   <div>
+    <MtrmHeader />
     <div ref="postbg" id="postbg"></div>
     <ContentDoc v-slot="{ doc: page }">
-      <div class="post">
+      <div id="post" class="post">
         <div class="post-header">
           <img :src="page.eyecatch" class="post-eyecatch" alt="eyecatch image" />
           <div class="post-title invert">{{ page.title }}</div>
@@ -28,12 +29,14 @@
             <span class="text-dark-grey">この記事は非表示に設定されています。</span>
           </div>
         </div>
-        <ContentRenderer :key="page._id" :value="page" class="post-text-wrap"></ContentRenderer>
+        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap"></ContentRenderer>
       </div>
     </ContentDoc>
     <button @click="shareContent" class="share">
       <img src="@/assets/ui/share.svg" class="ui-icon-medium" alt="share" />
     </button>
+    <MtrmFooter />
+    <ScrollTop />
   </div>
 </template>
 
@@ -70,16 +73,9 @@ useHead({
 })
 
 onMounted(() => {
-  if (content.backgroundColor != undefined) {
-    postbg.value.style.backgroundColor = content.backgroundColor
-  } else {
-    postbg.value.style.backgroundColor = "none"
-  }
-  if (content.backgroundImage != undefined) {
-    postbg.value.style.backgroundImage = `url(${content.backgroundImage})`
-  } else {
-    postbg.value.style.backgroundImage = "none"
-  }
+  if (content.backgroundColor != undefined) {postbg.value.style.backgroundColor = content.backgroundColor} else {postbg.value.style.backgroundColor = "none"}
+  //if (content.textColor != undefined) {text.value.style.color = content.textColor} else {text.value.style.color = "none"}
+  if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
 })
 </script>
 

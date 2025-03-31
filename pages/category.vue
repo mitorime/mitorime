@@ -1,5 +1,6 @@
 <template>
   <div>
+    <MtrmHeader />
     <div class="list">
       <div class="search">
         <img src="@/assets/ui/folder.svg" class="ui-icon-large" alt="sort" />
@@ -34,6 +35,7 @@
         </div>
       </template>
     </ContentList>
+    <MtrmFooter />
   </div>
 </template>
 

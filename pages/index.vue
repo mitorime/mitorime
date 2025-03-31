@@ -1,5 +1,6 @@
 <template>
   <div>
+    <MtrmHeader />
     <ContentList v-slot="{ list }" :query="{ path: '/post', sort: { updated: -1 }, where: { pin: true } }">
       <div class="list">
         <img src="@/assets/ui/pin.svg" class="ui-icon-large" alt="sort" />
@@ -41,6 +42,8 @@
     </ContentList>
     <div class="blank"></div>
   </div>
+  <MtrmFooter />
+  <ScrollTop />
 </template>
 
 <script setup>
