@@ -29,11 +29,11 @@
             <span class="text-dark-grey">この記事は非表示に設定されています。</span>
           </div>
         </div>
-        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap"></ContentRenderer>
+        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" :style="`color: ${page.textColor};`"></ContentRenderer>
       </div>
     </ContentDoc>
     <button @click="shareContent" class="share">
-      <img src="@/assets/ui/share.svg" class="ui-icon-medium" alt="share" />
+      <img src="@/assets/ui/share.svg" class="ui-icon-medium ui-icon-pushable" alt="share" />
     </button>
     <MtrmFooter />
     <ScrollTop />
@@ -57,7 +57,7 @@ const shareContent = () => {
     .then(() => console.log('Successfully shared'))
     .catch((error) => console.error('Error sharing', error))
   } else {
-    alert('Web Share API is not supported in your browser.')
+    alert('Web Share API をサポートしていないブラウザのようです。')
   }
 }
 
@@ -73,9 +73,9 @@ useHead({
 })
 
 onMounted(() => {
-  if (content.backgroundColor != undefined) {postbg.value.style.backgroundColor = content.backgroundColor} else {postbg.value.style.backgroundColor = "none"}
-  //if (content.textColor != undefined) {text.value.style.color = content.textColor} else {text.value.style.color = "none"}
-  if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
+  // if (content.backgroundColor != undefined) {postbg.value.style.backgroundColor = content.backgroundColor} else {postbg.value.style.backgroundColor = "none"}
+  // if (content.textColor != undefined) {text.value.style.color = content.textColor} else {text.value.style.color = "none"}
+　 if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
 })
 </script>
 
@@ -127,6 +127,7 @@ onMounted(() => {
 }
 .post-text-wrap {
   margin: 32px auto;
+  word-break: break-word;
 }
 .post-writer {
   display: flex;
