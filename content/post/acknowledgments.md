@@ -4,7 +4,7 @@ date: 2024.06.26
 updated: 2024.07.07
 eyecatch: https://lh3.googleusercontent.com/pw/AP1GczMCQwRmKy3x3RBRQO5uSVf0a_zDvbYjgECO3qj4YhZZhX8iWEX6n5AmYeT0uR7x8Ktyyu3lEB_9dfH1aL2S4FtDAftWjG9h4RfqPGBzOF98VWSV64At-efk2VlCjBrHCSyp5Idrx34yT2QepVUrWZEu=w1600-h838-s-no
 categories: devlog
-tags: [License]
+tags: ["License", "ミトリメ"]
 pin: false
 hidden: false
 warning: false

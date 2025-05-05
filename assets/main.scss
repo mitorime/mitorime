@@ -23,7 +23,6 @@ a {
 }
 button {
   font-family: "Zen Kaku Gothic New", sans-serif;
-
 }
 
 .invert {
@@ -107,7 +106,7 @@ button {
   padding: 24px 48px;
 }
 
-.list button {
+.list-button {
   background-color: $basic-light;
   padding: 0;
   border: 0;
@@ -156,6 +155,26 @@ button {
 
 .list-descr {
   font-size: 14px;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+}
+.pagination-button {
+  margin: 0 2px;
+  padding: 8px;
+  color: $basic-dark;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  background-color: $mark-light;
+}
+.pagination-button:disabled {
+  color: $mark-dark;
+  background-color: $mark-light;
 }
 
 .share {

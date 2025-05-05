@@ -20,26 +20,48 @@
         </NuxtLink>
       </div>
     </ContentList>
-    <ContentList v-slot="{ list }" :query="{ path: '/post', sort: orders[order % 4], where: { hidden: false } }">
-      <div class="list">
-        <button @click="changeOrder"><img :src="sortIcons[order % 4]" class="ui-icon-large ui-icon-pushable" alt="sort" /></button>
-        <nuxt-link :to="page._path" v-for="page in list" :key="page._path" id="list-child-main" class="list-child" :style="`background-color: ${page.articleColor}`">
-          <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
-          <div class="list-detail">
-            <div class="list-title">
-              <span><div class="list-title-cap invert">{{ page.title }}</div></span>
-              <span v-show="page.warning"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
-            </div>
-            <div>
-              <span class="list-descr"> {{ page.date }} </span>
-              <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
-            </div>
-            <div class="list-descr"> {{ page.description }} </div>
+
+    <div class="list">
+      <button @click="changeOrder" class="list-button">
+        <img :src="sortIcons[order % 4]" class="ui-icon-large ui-icon-pushable" alt="sort" />
+      </button>
+      <nuxt-link
+        :to="page._path"
+        v-for="page in list"
+        :key="page._path"
+        id="list-child-main"
+        class="list-child"
+        :style="`background-color: ${page.articleColor}`"
+      >
+        <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
+        <div class="list-detail">
+          <div class="list-title">
+            <span><div class="list-title-cap invert">{{ page.title }}</div></span>
+            <span v-show="page.warning">
+              <img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" />
+            </span>
           </div>
-        </nuxt-link>
-        <!--ContentDoc :path="page._path" excerpt :head="false" /-->
+          <div>
+            <span class="list-descr"> {{ page.date }} </span>
+            <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
+          </div>
+          <div class="list-descr"> {{ page.description }} </div>
+        </div>
+      </nuxt-link>
+    </div>
+
+    <div class="list">
+      <div class="pagination">
+        <button @click="currentPage--" :disabled="currentPage === 1" class="pagination-button"><</button>
+        <button @click="currentPage = 1" :disabled="currentPage === 1" class="pagination-button">1</button>
+        <div v-for="i of 3" :key="i">
+          <button @click="currentPage = (currentPage -2 +i)" :disabled="i === 2" v-if="(totalPages >= 3) && ((currentPage -2 +i) >= 2) && ((currentPage -2 +i) < totalPages)" class="pagination-button"> {{ (currentPage -2) +i }} </button>
+        </div>
+        <button @click="currentPage = totalPages" :disabled="currentPage === totalPages" v-if="totalPages >= 2" class="pagination-button"> {{ totalPages }} </button>
+        <button @click="currentPage++" :disabled="currentPage === totalPages" class="pagination-button">></button>
       </div>
-    </ContentList>
+    </div>
+
     <!--div class="list">
       <div class="doors">
         <nuxt-link to="/recommend" style="display: flex;">
@@ -55,13 +77,47 @@
 </template>
 
 <script setup>
+const perPage = 10
+const currentPage = ref(1)
 const sortIcons = ref([])
 const order = ref(0)
 const orders = [{updated: -1}, {updated: 1}, {title: 1}, {title: -1}]
 
 const changeOrder = () => {
-  return order.value++
+  order.value++
+  currentPage.value = 1
 }
+
+const list = ref([])
+const totalCount = ref(0)
+
+const fetchList = async () => {
+  try {
+    const result = await queryContent('/post')
+      .where({ hidden: false })
+      .sort(orders[order.value % 4])
+      .skip((currentPage.value - 1) * perPage)
+      .limit(perPage)
+      .find()
+    list.value = result
+
+    const count = await queryContent('/post')
+      .where({ hidden: false })
+      .count()
+    totalCount.value = count
+  } catch (error) {
+    console.error('記事の取得に失敗しました:', error)
+    list.value = []
+    totalCount.value = 0
+  }
+}
+
+watch([currentPage, order], () => {
+  fetchList()
+}, { immediate: true })
+
+const totalPages = computed(() => Math.ceil(totalCount.value / perPage))
+
 onMounted(() => {
   sortIcons.value = [new URL('@/assets/ui/sort-0.svg', import.meta.url).href, new URL('@/assets/ui/sort-1.svg', import.meta.url).href, new URL('@/assets/ui/sort-2.svg', import.meta.url).href, new URL('@/assets/ui/sort-3.svg', import.meta.url).href]
 })
