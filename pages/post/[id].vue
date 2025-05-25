@@ -16,7 +16,7 @@
               </NuxtLink>
             </span>
           </div>
-          <div class="post-writer">
+          <div class="post-writer" v-if="page.writtenby != 'mitori'">
             <img class="post-writer-icon" :src="page.writericon"/>
             <div class="post-written-by invert">{{ page.writtenby }}</div>
           </div>
@@ -138,6 +138,7 @@ onMounted(() => {
 .post-writer-icon {
   width: 24px;
   height: auto;
+  margin: 0 0;
 }
 .post-written-by {
   margin-left: -2px;
