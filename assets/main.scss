@@ -165,7 +165,9 @@ button {
 }
 .pagination-button {
   margin: 0 2px;
-  padding: 8px;
+  padding: 2px;
+  width: 32px;
+  height: 32px;
   color: $basic-dark;
   font-size: 14px;
   font-weight: bold;
