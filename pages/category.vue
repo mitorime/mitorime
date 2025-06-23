@@ -3,7 +3,7 @@
     <MtrmHeader />
     <div class="list">
       <div class="search">
-        <img src="@/assets/ui/folder.svg" class="ui-icon-large" alt="sort" />
+        <img src="@/assets/ui/folder.svg" class="ui-icon ui-icon-large" alt="sort" />
         <span class="search-query"> {{ queryCategory }} </span>
       </div>
     </div>
@@ -22,7 +22,8 @@
                 <span class="list-descr"> {{ page.date }} </span>
                 <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
               </div>
-              <div class="list-descr"> {{ page.description }} </div>
+              <!--div class="list-descr"> {{ page.description }} </div-->
+              <div class="list-categories"> {{ page.categories }}</div>
             </div>
           </nuxt-link>
         </div>

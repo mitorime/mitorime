@@ -57,6 +57,9 @@ button {
   font-weight: bold;
 }
 
+.ui-icon {
+  margin: 0;
+}
 .icon-text {
   display: flex;
   align-items: center;
@@ -93,6 +96,9 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  max-width: 720px;
+  margin: 16px auto 8px;
+  padding: 4px 12px;
 }
 
 .search-query {
@@ -113,7 +119,7 @@ button {
 }
 .list {
   max-width: 720px;
-  margin: 16px auto;
+  margin: 8px auto;
   padding: 12px;
   display: flex;
   flex-flow: column;
@@ -134,6 +140,7 @@ button {
 }
 
 .list-eyecatch {
+  margin: 0;
   width: $list-eyecatch-width;
   height: calc($list-eyecatch-width * 0.52375); // 16:8.38 -> Twitter OGP
   object-fit: cover;
@@ -155,6 +162,15 @@ button {
 
 .list-descr {
   font-size: 14px;
+}
+
+.list-categories {
+  width: fit-content;
+  margin: 3px 0;
+  padding: 0 5px;
+  color: $basic-light;
+  background-color: $mark-dark;
+  font-size: 13px;
 }
 
 .pagination {
@@ -195,20 +211,29 @@ button {
 }
 
 .mtrm-header {
+  margin: 4px 0;
   height: 48px;
-  justify-content: space-between;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  gap: 4px;
 }
 
-.mtrm-header-logo {
-  object-fit: contain;
-  margin: 8px;
+.mtrm-header-icon {
+  margin: 0;
+  padding-left: 6px;
+  width: auto;
+  height: 100%;
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
+}
+
+.mtrm-header-logotype {
+  margin: 0;
   width: auto;
   height: 100%;
   filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
 }
 
 .mtrm-footer {
-  height: 88px;
   flex-flow: column;
   background-color: $basic_dark;
 }
@@ -216,19 +241,29 @@ button {
 .mtrm-footer-logo {
   width: fit-content;
   object-fit: contain;
-  margin: 8px;
+  margin: 8px 8px 16px;
   width: 104px;
   height: 34px;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  gap: 4px;
 }
 
-.mtrm-footer-logo-img {
-  width: 104px;
+.mtrm-footer-icon {
+  width: auto;
+  height: 34px;
+  filter: invert($light-inv) sepia($light-sep) saturate($light-sat) hue-rotate($light-hue) brightness($light-bri) contrast($light-con);
+}
+
+.mtrm-footer-logotype {
+  width: auto;
   height: 34px;
   filter: invert($light-inv) sepia($light-sep) saturate($light-sat) hue-rotate($light-hue) brightness($light-bri) contrast($light-con);
 }
 
 .mtrm-footer-text {
-  margin: 0 8px 4px;
+  margin: 0 8px 12px;
 }
 
 .gap {

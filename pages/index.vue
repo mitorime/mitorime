@@ -3,7 +3,7 @@
     <MtrmHeader />
     <ContentList v-slot="{ list }" :query="{ path: '/post', sort: { updated: -1 }, where: { pin: true } }">
       <div class="list">
-        <img src="@/assets/ui/pin.svg" class="ui-icon-large ui-icon-unpushable" alt="sort" />
+        <img src="@/assets/ui/pin.svg" class="ui-icon ui-icon-large ui-icon-unpushable" alt="sort" />
         <NuxtLink :to="page._path" v-for="page in list" :key="page._path" class="list-child">
           <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
           <div class="list-detail">
@@ -15,7 +15,8 @@
               <span class="list-descr"> {{ page.date }} </span>
               <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
             </div>
-            <div class="list-descr"> {{ page.description }} </div>
+            <!--div class="list-descr"> {{ page.description }} </div-->
+            <div class="list-categories"> {{ page.categories }}</div>
           </div>
         </NuxtLink>
       </div>
@@ -23,7 +24,7 @@
 
     <div class="list">
       <button @click="changeOrder" class="list-button">
-        <img :src="sortIcons[order % 4]" class="ui-icon-large ui-icon-pushable" alt="sort" />
+        <img :src="sortIcons[order % 4]" class="ui-icon ui-icon-large ui-icon-pushable" alt="sort" />
       </button>
       <nuxt-link
         :to="page._path"
@@ -45,7 +46,8 @@
             <span class="list-descr"> {{ page.date }} </span>
             <span v-show="page.date != page.updated" class="list-descr"> - {{ page.updated }}</span>
           </div>
-          <div class="list-descr"> {{ page.description }} </div>
+          <!--div class="list-descr"> {{ page.description }} </div-->
+          <div class="list-categories"> {{ page.categories }}</div>
         </div>
       </nuxt-link>
     </div>
