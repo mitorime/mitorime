@@ -1,24 +1,24 @@
 <template>
   <div>
-    <MtrmHeader />
-    <div ref="postbg" id="postbg"></div>
     <ContentDoc v-slot="{ doc: page }">
-      <div id="post" class="post">
+      <MtrmHeader :logoFilter="page.logoColor"/>
+      <div ref="postbg" id="postbg" :style="page.bgColor"></div>
+      <div id="post" class="post" :style="page.additionalStyle">
         <div class="post-header">
           <img :src="page.eyecatch" class="post-eyecatch" alt="eyecatch image" />
-          <div class="post-title invert">{{ page.title }}</div>
-          <span class="post-date invert">{{ page.date }}</span>
-          <span v-show="page.date != page.updated" class="post-date invert"> - {{ page.updated }}</span>
+          <div class="post-title invert" :style="page.metaColor">{{ page.title }}</div>
+          <span class="post-date invert" :style="page.metaColor">{{ page.date }}</span>
+          <span v-show="page.date != page.updated" class="post-date invert" :style="page.metaColor"> - {{ page.updated }}</span>
           <div class="post-tags">
             <span v-for="tag in page.tags" :key="tag">
               <NuxtLink :to="`/tag?q=${tag}`">
-                <div class="pale-invert">#{{ tag }}</div>
+                <div class="pale-invert" :style="page.metaColor">#{{ tag }}</div>
               </NuxtLink>
             </span>
           </div>
           <div class="post-writer" v-if="page.writtenby != 'mitori'">
             <img class="post-writer-icon" :src="page.writericon"/>
-            <div class="post-written-by invert">{{ page.writtenby }}</div>
+            <div class="post-written-by invert" :style="page.metaColor">{{ page.writtenby }}</div>
           </div>
           <div class="icon-text" v-show="page.warning">
             <span class="icon-text"><img src="@/assets/ui/warning.svg" class="ui-icon-medium" alt="content warning" /></span>
@@ -29,7 +29,7 @@
             <span class="text-dark-grey">この記事は非表示に設定されています。</span>
           </div>
         </div>
-        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" :style="`color: ${page.textColor};`"></ContentRenderer>
+        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap"></ContentRenderer>
       </div>
     </ContentDoc>
     <button @click="shareContent" class="share">
@@ -75,7 +75,7 @@ useHead({
 onMounted(() => {
   // if (content.backgroundColor != undefined) {postbg.value.style.backgroundColor = content.backgroundColor} else {postbg.value.style.backgroundColor = "none"}
   // if (content.textColor != undefined) {text.value.style.color = content.textColor} else {text.value.style.color = "none"}
-　 if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
+  if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
 })
 </script>
 
@@ -84,7 +84,7 @@ onMounted(() => {
 #postbg {
   z-index: -3;
   position: fixed;
-  margin-top: -48px;
+  margin-top: -54px;
   width: 100vw;
   height: 100%;
   background-image: none;

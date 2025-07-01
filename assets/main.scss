@@ -210,62 +210,6 @@ button {
   z-index: 10;
 }
 
-.mtrm-header {
-  margin: 4px 0;
-  height: 48px;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  gap: 4px;
-}
-
-.mtrm-header-icon {
-  margin: 0;
-  padding-left: 6px;
-  width: auto;
-  height: 100%;
-  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
-}
-
-.mtrm-header-logotype {
-  margin: 0;
-  width: auto;
-  height: 100%;
-  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
-}
-
-.mtrm-footer {
-  flex-flow: column;
-  background-color: $basic_dark;
-}
-
-.mtrm-footer-logo {
-  width: fit-content;
-  object-fit: contain;
-  margin: 8px 8px 16px;
-  width: 104px;
-  height: 34px;
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row nowrap;
-  gap: 4px;
-}
-
-.mtrm-footer-icon {
-  width: auto;
-  height: 34px;
-  filter: invert($light-inv) sepia($light-sep) saturate($light-sat) hue-rotate($light-hue) brightness($light-bri) contrast($light-con);
-}
-
-.mtrm-footer-logotype {
-  width: auto;
-  height: 34px;
-  filter: invert($light-inv) sepia($light-sep) saturate($light-sat) hue-rotate($light-hue) brightness($light-bri) contrast($light-con);
-}
-
-.mtrm-footer-text {
-  margin: 0 8px 12px;
-}
-
 .gap {
   height: 16px;
 }
