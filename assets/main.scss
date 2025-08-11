@@ -117,6 +117,7 @@ button {
   padding: 0;
   border: 0;
 }
+
 .list {
   max-width: 720px;
   margin: 8px auto;
@@ -128,6 +129,24 @@ button {
 }
 .list a {
   text-decoration: none;
+}
+
+.list-header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: $basic-dark;
+  padding: 8px 0;
+}
+
+.list-icon {
+  width: 1.2em;
+  height: auto;
+  filter: invert($dark-inv) sepia($dark-sep) saturate($dark-sat) hue-rotate($dark-hue) brightness($dark-bri) contrast($dark-con);
 }
 
 .list-child {

@@ -31,10 +31,9 @@
         </div>
         <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap"></ContentRenderer>
       </div>
+      <Share :data="shareData" />
+      <MoreFromAuthor :author="page.writtenby" />
     </ContentDoc>
-    <button @click="shareContent" class="share">
-      <img src="@/assets/ui/share.svg" class="ui-icon-medium ui-icon-pushable" alt="share" />
-    </button>
     <MtrmFooter />
     <ScrollTop />
   </div>
@@ -51,16 +50,6 @@ const shareData = {
 
 const postbg = ref(null)
 
-const shareContent = () => {
-  if (navigator.share) {
-    navigator.share(shareData)
-    .then(() => console.log('Successfully shared'))
-    .catch((error) => console.error('Error sharing', error))
-  } else {
-    alert('Web Share API をサポートしていないブラウザのようです。')
-  }
-}
-
 useHead({
   title: `${content.title}` + ' | ミトリメ',
   meta: [
@@ -73,14 +62,11 @@ useHead({
 })
 
 onMounted(() => {
-  // if (content.backgroundColor != undefined) {postbg.value.style.backgroundColor = content.backgroundColor} else {postbg.value.style.backgroundColor = "none"}
-  // if (content.textColor != undefined) {text.value.style.color = content.textColor} else {text.value.style.color = "none"}
   if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
 })
 </script>
 
 <style lang="scss" scoped>
-
 #postbg {
   z-index: -3;
   position: fixed;
