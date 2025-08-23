@@ -35,8 +35,13 @@ button {
 .pale-invert {
   background-color: var(--muted-color);
   width: fit-content;
-  color: $light_muted; // ここあれね。置換漏れじゃなくて、デザイン上の理由でわざとダークモードの影響を受けないようにしてる。
+  color: var(--surface-color);
   padding: 0 2px;
+}
+@media (prefers-color-scheme: dark) {
+  .pale-invert {
+    color: $light_muted; // ここあれね。置換漏れじゃなくて、デザイン上の理由でわざとダークモードの影響を受けないようにしてる。
+  }
 }
 
 .text-light {
