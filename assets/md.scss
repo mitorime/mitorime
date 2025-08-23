@@ -217,9 +217,11 @@ dl dd {
 h2 a, h3 a {
   text-decoration: none;
 }
+
 a {
   color: var(--content-color);
-  text-decoration: underline var(--content-color) solid;
+  text-decoration: underline solid;
+  text-decoration-color: var(--content-color);
   text-decoration-thickness: 2px;
 }
 
