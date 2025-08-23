@@ -12,7 +12,7 @@ interface ShareData {
 }
 
 const props = withDefaults(defineProps<{
-  shareData?: ShareData
+  shareData: ShareData
 }>(), {
   shareData: () => ({
     title: 'ミトリメ',

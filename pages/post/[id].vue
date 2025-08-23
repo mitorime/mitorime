@@ -31,7 +31,7 @@
         </div>
         <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" />
       </div>
-      <Share :data="shareData" />
+      <Share :shareData="shareData" />
       <MoreFromAuthor :author="page.writtenby" />
     </ContentDoc>
     <MtrmFooter />
