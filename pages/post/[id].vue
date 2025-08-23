@@ -128,7 +128,6 @@ onMounted(() => {
 }
 .post-text-wrap {
   margin: 32px auto;
-  word-break: break-all;
 }
 .post-writer {
   display: flex;
