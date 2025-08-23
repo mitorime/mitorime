@@ -183,6 +183,9 @@ pre {
   margin-bottom: 0;
   padding: 8px 12px;
   background-color: var(--marker-color);
+  word-break: break-all;
+  overflow-wrap: break-word;
+  white-space: normal; // 死んでも改行してやる
 }
 
 p, blockquote, ul, ol, dl, table, pre, details {
