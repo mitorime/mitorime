@@ -4,14 +4,14 @@
       <img src="/icon.png" class="mtrm-footer-icon" alt="mitorime logo"/>
       <img src="/logo/angular.png" class="mtrm-footer-logotype" alt="mitorime logotype"/>
     </NuxtLink>
-    <div class="mtrm-footer-text text-light">copyleft 2024-2025 mitori<span class="text-dark-grey">・powered by Nuxt.js</span></div>
+    <div class="mtrm-footer-text">copyleft 2024-2025 mitori<span class="text-dark-grey">・powered by Nuxt.js</span></div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .mtrm-footer {
   flex-flow: column;
-  background-color: $basic_dark;
+  background-color: var(--content-color);
 }
 
 .mtrm-footer-logo {
@@ -40,5 +40,6 @@
 
 .mtrm-footer-text {
   margin: 0 8px 12px;
+  color: $light_surface;
 }
 </style>

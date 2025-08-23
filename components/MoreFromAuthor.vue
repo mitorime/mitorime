@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-bg">
     <ContentList
       v-slot="{ list }"
       :query="{
@@ -57,5 +57,7 @@ const props = withDefaults(defineProps<{
 </script>
 
 <style lang="scss" scoped>
-
+.list-bg {
+  background-color: var(--surface-color);
+}
 </style>

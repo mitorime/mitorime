@@ -19,12 +19,12 @@ dfn {
 }
 
 h1, h2 {
-  border-bottom: 2px solid $mark-dark;
+  border-bottom: 2px solid var(--muted-color);
 }
 
 mark {
-  background-color: $mark-light;
-  color: $basic-dark;
+  background-color: var(--marker-color);
+  color: var(--content-color);
 }
 
 img {
@@ -63,7 +63,7 @@ figure {
 hr {
   box-sizing: content-box;
   background: transparent;
-  border: 1px solid $mark-dark;
+  border: 1px solid var(--muted-color);
   height: 0;
   padding: 0;
   margin: 32px 0;
@@ -112,21 +112,27 @@ kbd {
   padding: 3px 5px;
   font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
   line-height: 10px;
-  color: $basic-dark;
+  color: var(--content-color);
   vertical-align: middle;
-  background-color: $basic-light;
-  border: solid 1px $basic-dark;
-  border-bottom-color: $basic-dark;
+  background-color: var(--surface-color);
+  border: solid 1px var(--content-color);
+  border-bottom-color: var(--content-color);
   border-radius: 6px;
-  box-shadow: inset 0 -1px 0 $basic-dark;
+  box-shadow: inset 0 -1px 0 var(--content-color);
 }
 
 h1 { margin: 24px 0 16px; font-size: 1.75em; }
 h2 { margin: 24px 0 16px; font-size:  1.5em; }
 h3 { margin: 24px 0 16px; font-size:  1.3em; }
-h4 { margin: 16px 0 12px; font-size:  1.2em; }
-h5 { margin: 12px 0  8px; font-size:  1.1em; }
-h6 { margin:  8px 0  4px; font-size:  1.0em; }
+h4 { margin: 24px 0 12px; font-size:  1.2em; }
+h5 { margin: 20px 0  8px; font-size:  1.1em; }
+h6 { margin: 16px 0  4px; font-size:  1.0em; }
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3 {
+    color: $light_muted; // ここあれね。置換漏れじゃなくて、デザイン上の理由でわざとダークモードの影響を受けないようにしてる。
+  }
+}
 
 p {
   margin-bottom: 24px;
@@ -135,8 +141,8 @@ p {
 
 blockquote {
   padding: 2px 12px;
-  background-color: $mark-light;
-  border-left: 3px solid $basic-dark;
+  background-color: var(--marker-color);
+  border-left: 3px solid var(--content-color);
 }
 blockquote>:first-child {
   margin-top: 0;
@@ -169,14 +175,14 @@ tt, code, samp, pre {
 code {
   padding: 2px;
   width: fit-content;
-  background-color: $mark-light;
+  background-color: var(--marker-color);
 }
 
 pre {
   margin-top: 0;
   margin-bottom: 0;
   padding: 2px;
-  background-color: $mark-light;
+  background-color: var(--marker-color);
 }
 
 p, blockquote, ul, ol, dl, table, pre, details {
@@ -212,24 +218,24 @@ h2 a, h3 a {
   text-decoration: none;
 }
 a {
-  color: $basic-dark;
-  text-decoration: underline $basic-dark solid;
+  color: var(--content-color);
+  text-decoration: underline var(--content-color) solid;
   text-decoration-thickness: 2px;
 }
 
 table th, table td {
   padding: 6px 13px;
-  border: 1px solid $basic-dark;
+  border: 1px solid var(--content-color);
 }
 table td>:last-child {
   margin-bottom: 0;
 }
 table tr {
-  background-color: $basic-light;
-  border-top: 1px solid $basic_dark;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--content-color);
 }
 table tr:nth-child(2n) {
-  background-color: $mark-light;
+  background-color: var(--marker-color);
 }
 table img {
   background-color: transparent;

@@ -27,6 +27,7 @@ warning: true
 **bold**
 __bold2__
 
+
 *italic*
 _italic2_
 ***both***

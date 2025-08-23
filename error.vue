@@ -29,9 +29,13 @@ const error = useError()
   margin: auto;
   text-align: center;
   flex-grow: 1;
+  gap: 12px;
 }
 .error-code {
   font-size: 60px;
   font-weight: bold;
+}
+.error-details {
+  word-break: break-all;
 }
 </style>

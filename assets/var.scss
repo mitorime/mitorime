@@ -1,7 +1,12 @@
-$basic-light: #ebebeb;
-$mark-light: #dddee0;
-$mark-dark: #b7b9c1;
-$basic-dark: #8b8f9f;
+$light_surface: #ebebeb;
+$light_marker: #dddee0;
+$light_muted: #b7b9c1;
+$light-content: #8b8f9f;
+
+$dark_surface: #191b20;
+$dark_marker: #32353f;
+$dark_muted: #606473;
+$dark-content: #8b8f9f;
 
 $light-inv: 96%;
 $light-sep: 10%;
@@ -25,3 +30,19 @@ $dark-bri: 88%;
 $dark-con: 93%;
 
 $list-eyecatch-width: 144px;
+
+:root {
+  --surface-color: #{$light_surface};
+  --marker-color: #{$light_marker};
+  --muted-color: #{$light_muted};
+  --content-color: #{$light-content};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-color: #{$dark_surface};
+    --marker-color: #{$dark_marker};
+    --muted-color: #{$dark_muted};
+    --content-color: #{$dark-content};
+  }
+}

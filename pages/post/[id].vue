@@ -29,7 +29,7 @@
             <span class="text-dark-grey">この記事は非表示に設定されています。</span>
           </div>
         </div>
-        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap"></ContentRenderer>
+        <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" />
       </div>
       <Share :data="shareData" />
       <MoreFromAuthor :author="page.writtenby" />
@@ -50,21 +50,10 @@ const shareData = {
 
 const postbg = ref(null)
 
-// twitter 埋め込み関連
 const loadTwitterWidget = () => {
   if (window.twttr && window.twttr.widgets) {
     window.twttr.widgets.load()
   }
-}
-
-if (!document.querySelector('script[src="https://platform.twitter.com/widgets.js"]')) {
-  const script = document.createElement('script')
-  script.src = 'https://platform.twitter.com/widgets.js'
-  script.async = true
-  script.onload = loadTwitterWidget // 読み込み完了後に変換
-  document.body.appendChild(script)
-} else {
-  loadTwitterWidget()
 }
 
 useHead({
@@ -80,6 +69,15 @@ useHead({
 
 onMounted(() => {
   if (content.backgroundImage != undefined) {postbg.value.style.backgroundImage = `url(${content.backgroundImage})`} else {postbg.value.style.backgroundImage = "none"}
+  if (!document.querySelector('script[src="https://platform.twitter.com/widgets.js"]')) {
+    const script = document.createElement('script')
+    script.src = 'https://platform.twitter.com/widgets.js'
+    script.async = true
+    script.onload = loadTwitterWidget // 読み込み完了後に変換
+    document.body.appendChild(script)
+  } else {
+    loadTwitterWidget()
+  }
 })
 </script>
 
