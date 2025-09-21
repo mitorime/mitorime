@@ -1,6 +1,11 @@
 <template>
   <button @click="shareContent" class="share">
-    <img src="@/assets/ui/share.svg" class="ui-icon-medium ui-icon-pushable" alt="share" />
+    <img
+      src="@/assets/ui/share.svg"
+      class="ui-icon-medium ui-icon-pushable"
+      :style="`${props.iconFilter}`"
+      alt="share"
+    />
   </button>
 </template>
 
@@ -12,13 +17,15 @@ interface ShareData {
 }
 
 const props = withDefaults(defineProps<{
-  shareData: ShareData
+  shareData: ShareData,
+  iconFilter?: string
 }>(), {
   shareData: () => ({
     title: 'ミトリメ',
     text: 'ミトリメ',
     url: typeof window !== 'undefined' ? window.location.href : ''
-  })
+  }),
+  iconFilter: ""
 })
 
 const shareContent = () => {

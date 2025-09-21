@@ -28,7 +28,7 @@
           </div>
         </div>
         <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" />
-        <Share :shareData="shareData" />
+        <Share :shareData="shareData" :iconFilter="page.logoColor"/>
         <div class="post-tags">
           <span v-for="tag in page.tags" :key="tag">
             <NuxtLink :to="`/tag?q=${tag}`">
