@@ -1,16 +1,16 @@
 <template>
   <div>
     <MtrmHeader />
-    <div class="list">
-      <div class="search">
-        <img src="@/assets/ui/folder.svg" class="ui-icon ui-icon-large" alt="sort" />
-        <span class="search-query"> {{ queryCategory }} </span>
-      </div>
+    <div class="search">
+      <img src="@/assets/ui/folder.svg" class="ui-icon ui-icon-large" alt="sort" />
+      <span class="search-query"> {{ queryCategory }} </span>
     </div>
     <ContentList :query="{ path: '/post', sort: orders[order % 4], where: searchCategory }">
       <template #default="{ list }">
         <div class="list">
-          <button @click="changeOrder"><img :src="sortIcons[order % 4]" class="ui-icon-large" alt="sort" /></button>
+          <button @click="changeOrder" class="list-button">
+            <img :src="sortIcons[order % 4]" class="ui-icon-large" alt="sort" />
+          </button>
           <nuxt-link :to="page._path" v-for="page in list" :key="page._path" class="list-child">
             <img :src="page.eyecatch" class="list-eyecatch" alt="eyecatch image" />
             <div class="list-detail">

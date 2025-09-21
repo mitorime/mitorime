@@ -10,11 +10,9 @@
           <span class="post-date invert" :style="page.metaColor">{{ page.date }}</span>
           <span v-show="page.date != page.updated" class="post-date invert" :style="page.metaColor"> - {{ page.updated }}</span>
           <div class="post-tags">
-            <span v-for="tag in page.tags" :key="tag">
-              <NuxtLink :to="`/tag?q=${tag}`">
-                <div class="pale-invert" :style="page.metaColor">#{{ tag }}</div>
-              </NuxtLink>
-            </span>
+            <NuxtLink :to="`/category?q=${page.categories}`">
+              <div class="pale-invert" :style="page.metaColor">mitorime > {{ page.categories }}</div>
+            </NuxtLink>
           </div>
           <div class="post-writer" v-if="page.writtenby != 'mitori'">
             <img class="post-writer-icon" :src="page.writericon"/>
@@ -30,8 +28,16 @@
           </div>
         </div>
         <ContentRenderer :key="page._id" :value="page" id="text" class="post-text-wrap" />
+        <Share :shareData="shareData" />
+        <div class="post-tags">
+          <span v-for="tag in page.tags" :key="tag">
+            <NuxtLink :to="`/tag?q=${tag}`">
+              <div class="pale-invert" :style="page.metaColor">#{{ tag }}</div>
+            </NuxtLink>
+          </span>
+        </div>
       </div>
-      <Share :shareData="shareData" />
+
       <MoreFromAuthor :author="page.writtenby" />
     </ContentDoc>
     <MtrmFooter />

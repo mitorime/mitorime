@@ -1,10 +1,10 @@
 <template>
   <div>
     <MtrmHeader />
-      <div class="search">
-        <img src="@/assets/ui/tag.svg" class="ui-icon ui-icon-large" alt="sort" />
-        <span class="search-query"> {{ queryTag }} </span>
-      </div>
+    <div class="search">
+      <img src="@/assets/ui/tag.svg" class="ui-icon ui-icon-large" alt="sort" />
+      <span class="search-query"> {{ queryTag }} </span>
+    </div>
     <ContentList :query="{ path: '/post', sort: orders[order % 4], where: searchTag }">
       <template #default="{ list }">
         <div class="list">
