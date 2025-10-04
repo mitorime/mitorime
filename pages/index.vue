@@ -54,13 +54,13 @@
 
     <div class="list">
       <div class="pagination">
-        <button @click="currentPage--" :disabled="currentPage === 1" class="pagination-button"><</button>
-        <button @click="currentPage = 1" :disabled="currentPage === 1" class="pagination-button">1</button>
+        <NuxtLink :to="`/?page=${currentPage - 1}`" :disabled="currentPage === 1" class="pagination-button"><</NuxtLink>
+        <NuxtLink :to="`/?page=1`" :disabled="currentPage === 1" class="pagination-button">1</NuxtLink>
         <div v-for="i of 3" :key="i">
-          <button @click="currentPage = (currentPage -2 +i)" :disabled="i === 2" v-if="(totalPages >= 3) && ((currentPage -2 +i) >= 2) && ((currentPage -2 +i) < totalPages)" class="pagination-button"> {{ (currentPage -2) +i }} </button>
+          <NuxtLink :to="`/?page=${currentPage -2 +i}`" :disabled="i === 2" v-if="(totalPages >= 3) && ((currentPage -2 +i) >= 2) && ((currentPage -2 +i) < totalPages)" class="pagination-button"> {{ (currentPage -2) +i }} </NuxtLink>
         </div>
-        <button @click="currentPage = totalPages" :disabled="currentPage === totalPages" v-if="totalPages >= 2" class="pagination-button"> {{ totalPages }} </button>
-        <button @click="currentPage++" :disabled="currentPage === totalPages" class="pagination-button">></button>
+        <NuxtLink :to="`/?page=${totalPages}`" :disabled="currentPage === totalPages" v-if="totalPages >= 2" class="pagination-button"> {{ totalPages }} </NuxtLink>
+        <NuxtLink :to="`/?page=${currentPage + 1}`" :disabled="currentPage === totalPages" class="pagination-button">></NuxtLink>
       </div>
     </div>
 
@@ -79,7 +79,8 @@
 </template>
 
 <script setup>
-const perPage = 10
+const route = useRoute()
+const perPage = 5
 const currentPage = ref(1)
 const sortIcons = ref([])
 const order = ref(0)
@@ -94,6 +95,7 @@ const list = ref([])
 const totalCount = ref(0)
 
 const fetchList = async () => {
+  currentPage.value = parseInt(route.query.page) || 1
   try {
     const result = await queryContent('/post')
       .where({ hidden: false })
@@ -114,9 +116,12 @@ const fetchList = async () => {
   }
 }
 
-watch([currentPage, order], () => {
-  fetchList()
-}, { immediate: true })
+watch(
+  () => [route.fullPath, order],
+  () => {
+    fetchList()
+  }, { immediate: true }
+)
 
 const totalPages = computed(() => Math.ceil(totalCount.value / perPage))
 

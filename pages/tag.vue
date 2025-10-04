@@ -31,7 +31,7 @@
       <template #not-found>
         <div class="list">
           <div class="search-notfound">
-            not found! ^_^
+            not found!
           </div>
         </div>
       </template>
