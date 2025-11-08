@@ -54,13 +54,13 @@
 
     <div class="list">
       <div class="pagination">
-        <NuxtLink :to="`/?page=${currentPage - 1}`" :disabled="currentPage === 1" class="pagination-button"><</NuxtLink>
-        <NuxtLink :to="`/?page=1`" :disabled="currentPage === 1" class="pagination-button">1</NuxtLink>
+        <button :onclick="`location.href='/?page=${currentPage - 1}'`" :disabled="currentPage === 1" class="pagination-button"><</button>
+        <button :onclick="`location.href='/?page=1'`" :disabled="currentPage === 1" class="pagination-button">1</button>
         <div v-for="i of 3" :key="i">
-          <NuxtLink :to="`/?page=${currentPage -2 +i}`" :disabled="i === 2" v-if="(totalPages >= 3) && ((currentPage -2 +i) >= 2) && ((currentPage -2 +i) < totalPages)" class="pagination-button"> {{ (currentPage -2) +i }} </NuxtLink>
+          <button :onclick="`location.href='/?page=${currentPage -2 +i}'`" :disabled="i === 2" v-if="(totalPages >= 3) && ((currentPage -2 +i) >= 2) && ((currentPage -2 +i) < totalPages)" class="pagination-button"> {{ (currentPage -2) +i }} </button>
         </div>
-        <NuxtLink :to="`/?page=${totalPages}`" :disabled="currentPage === totalPages" v-if="totalPages >= 2" class="pagination-button"> {{ totalPages }} </NuxtLink>
-        <NuxtLink :to="`/?page=${currentPage + 1}`" :disabled="currentPage === totalPages" class="pagination-button">></NuxtLink>
+        <button :onclick="`location.href='/?page=${totalPages}'`" :disabled="currentPage === totalPages" v-if="totalPages >= 2" class="pagination-button"> {{ totalPages }} </button>
+        <button :onclick="`location.href='/?page=${currentPage + 1}'`" :disabled="currentPage === totalPages" class="pagination-button">></button>
       </div>
     </div>
 

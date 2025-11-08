@@ -188,6 +188,11 @@ pre {
   white-space: normal; // 死んでも改行してやる
 }
 
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 p, blockquote, ul, ol, dl, table, pre, details {
   margin-top: 0;
   margin-bottom: 24px;
