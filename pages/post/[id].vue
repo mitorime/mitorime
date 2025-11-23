@@ -1,7 +1,7 @@
 <template>
   <div>
     <ContentDoc v-slot="{ doc: page }">
-      <MtrmHeader :logoFilter="page.logoColor"/>
+      <MtrmHeader :logoFilter="page.logoColor" />
       <div ref="postbg" id="postbg" :style="page.bgColor"></div>
       <div id="post" class="post" :style="page.additionalStyle">
         <div class="post-header">

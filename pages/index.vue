@@ -80,7 +80,7 @@
 
 <script setup>
 const route = useRoute()
-const perPage = 5
+const perPage = 15
 const currentPage = ref(1)
 const sortIcons = ref([])
 const order = ref(0)
