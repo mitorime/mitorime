@@ -3,8 +3,8 @@
     <MtrmHeader />
     <div class="error-container">
       <div class="error-code">{{ error.statusCode }}</div>
-      <div class="error-details">{{ error.message }}</div>
-      <NuxtLink to="/" class="error-details">もどる</NuxtLink>
+      <div class="error-details">{{ error.statusMessage }}</div>
+      <NuxtLink to="/" class="error-exit">もどる</NuxtLink>
     </div>
   </div>
 </template>
@@ -29,7 +29,6 @@ const error = useError()
   margin: auto;
   text-align: center;
   flex-grow: 1;
-  gap: 12px;
 }
 .error-code {
   font-size: 60px;
@@ -37,5 +36,8 @@ const error = useError()
 }
 .error-details {
   word-break: break-all;
+}
+.error-exit {
+  margin: 32px auto 64px;
 }
 </style>
