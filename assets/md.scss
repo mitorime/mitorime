@@ -278,3 +278,12 @@ iframe {
   line-height: 32px;
   margin-bottom: 32px;
 }
+.tag-inline {
+  display: inline-block;
+  background-color: var(--muted-color);
+  width: fit-content;
+  color: var(--surface-color);
+  margin: 0 2px;
+  padding: 0 4px;
+  text-decoration: none;
+}
