@@ -40,6 +40,6 @@
 
 .mtrm-footer-text {
   margin: 0 8px 12px;
-  color: $light_surface;
+  color: var(--surface-color);
 }
 </style>
